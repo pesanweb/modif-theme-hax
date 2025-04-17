@@ -1,0 +1,313 @@
+{
+  "id": "e2af29d8-a753-47a1-98ad-d28eaf3277be",
+  "title": "situs ku ooo",
+  "author": "",
+  "description": "own course",
+  "license": "by-sa",
+  "metadata": {
+    "author": {
+      "image": "",
+      "name": null,
+      "email": null,
+      "socialLink": null
+    },
+    "site": {
+      "name": "mysite",
+      "logo": "https://images-assets.nasa.gov/image/ARC-2011-ACD11-0035-024/ARC-2011-ACD11-0035-024~small.jpg",
+      "settings": {
+        "lang": "en-US",
+        "publishPagesOn": true,
+        "pathauto": false,
+        "sw": false,
+        "forceUpgrade": false,
+        "gaID": null
+      },
+      "created": 1743816556,
+      "updated": 1743985038,
+      "git": {
+        "vendor": "github",
+        "branch": "gh-pages",
+        "publicRepoUrl": "https://github.com/andyid1/mysite"
+      },
+      "version": "10.0.2",
+      "domain": null,
+      "tags": null,
+      "static": {}
+    },
+    "theme": {
+      "element": "custom-tutorial-theme",
+      "path": "./custom/build/custom.es6.js",
+      "name": "CustomTutorialTheme",
+      "variables": {
+        "image": "",
+        "imageAlt": null,
+        "imageLink": null,
+        "hexCode": null,
+        "cssVariable": "--simple-colors-default-theme-null-7",
+        "icon": null
+      },
+      "regions": {}
+    },
+    "node": {
+      "fields": {}
+    },
+    "build": {
+      "version": "10.0.2",
+      "structure": "course",
+      "type": "own"
+    }
+  },
+  "items": [
+    {
+      "id": "item-d3dafcf5-5d32-46d4-99b2-124b2051d5e0",
+      "indent": 0,
+      "location": "pages/item-d3dafcf5-5d32-46d4-99b2-124b2051d5e0/index.html",
+      "slug": "welcome",
+      "order": 0,
+      "parent": null,
+      "title": "Welcome to mysite",
+      "description": "Welcome to your new HAX site! Click edit on the top bar to get started\nWhat can I do?\nWe've got a ton of blocks that are easy to use and get a lot done with little effort, so much in fact we made a l",
+      "metadata": {
+        "created": 1743816556,
+        "updated": 1744778179,
+        "published": true,
+        "locked": false,
+        "status": "",
+        "pageType": "assessment",
+        "hideInMenu": false,
+        "readtime": 1,
+        "videos": {},
+        "images": {},
+        "icon": "lrn:assessment"
+      }
+    },
+    {
+      "id": "item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7",
+      "indent": 0,
+      "location": "pages/item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7/index.html",
+      "slug": "welcome/page",
+      "order": 0,
+      "parent": "item-d3dafcf5-5d32-46d4-99b2-124b2051d5e0",
+      "title": "Page",
+      "description": "vdsfdsfd\n\nfa\nsdf\nsaf\n\n\n\n\n\ndsa\nfds\n\n\n\n\n",
+      "metadata": {
+        "created": 1743816595,
+        "updated": 1744788433,
+        "images": {},
+        "videos": {},
+        "files": [
+          {
+            "path": "/home/andy/git/mysite/files/Teh-tawar-manis-600x600.jpg",
+            "fullUrl": "//home/andy/git/mysite/files/Teh-tawar-manis-600x600.jpg",
+            "url": "files/Teh-tawar-manis-600x600.jpg",
+            "type": "image/jpeg",
+            "name": "Teh-tawar-manis-600x600.jpg",
+            "size": 51880
+          }
+        ],
+        "published": true,
+        "hideInMenu": false,
+        "locked": false,
+        "readtime": 28,
+        "status": ""
+      }
+    },
+    {
+      "id": "item-4da90af0-486d-424d-8a35-e4439302ea3a",
+      "indent": 0,
+      "location": "pages/item-4da90af0-486d-424d-8a35-e4439302ea3a/index.html",
+      "slug": "welcome/page/page",
+      "order": 0,
+      "parent": "item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7",
+      "title": "Page",
+      "description": "sadsaddsadsa\n",
+      "metadata": {
+        "created": 1743816598,
+        "updated": 1743984726,
+        "images": {},
+        "videos": {},
+        "published": true,
+        "locked": false,
+        "status": "",
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-5a944b19-fa7f-4aed-9fe7-0477337bb181",
+      "indent": 0,
+      "location": "pages/item-5a944b19-fa7f-4aed-9fe7-0477337bb181/index.html",
+      "slug": "welcome/page/page-copy",
+      "order": 1,
+      "parent": "item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7",
+      "title": "Page Copy",
+      "description": "dsazdsadsa\nfd\nsa\nfds\naf\ndsa\nfd\nsaf\ndsa/goog\n\n",
+      "metadata": {
+        "created": 1743816599,
+        "updated": 1744830255,
+        "images": {},
+        "videos": {},
+        "published": true,
+        "locked": false,
+        "status": "",
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-320fd3f6-a32e-4e50-af0d-3c507fceab59",
+      "indent": 0,
+      "location": "pages/item-320fd3f6-a32e-4e50-af0d-3c507fceab59/index.html",
+      "slug": "welcome/page/page-copy-copy",
+      "order": 2,
+      "parent": "item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7",
+      "title": "Page Copy Copy",
+      "description": "sfasfa\nfdas\nf\nds\nfd\ns\nfds\n",
+      "metadata": {
+        "created": 1743816602,
+        "updated": 1743984740,
+        "images": {},
+        "videos": {},
+        "published": true,
+        "locked": false,
+        "status": "",
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-d89e882c-5f03-4245-9135-c75c8bee9de6",
+      "indent": 0,
+      "location": "pages/item-d89e882c-5f03-4245-9135-c75c8bee9de6/index.html",
+      "slug": "welcome-to-mysite-copy",
+      "order": 2,
+      "parent": null,
+      "title": "Welcome to mysite Copy",
+      "description": "",
+      "metadata": {
+        "created": 1743816604,
+        "updated": 1743982431,
+        "images": [],
+        "videos": [],
+        "published": true,
+        "locked": false,
+        "status": ""
+      }
+    },
+    {
+      "id": "item-157814c1-1bf5-4787-8ee2-f0971bcecd91",
+      "indent": 0,
+      "location": "pages/item-157814c1-1bf5-4787-8ee2-f0971bcecd91/index.html",
+      "slug": "welcome-to-mysite-copy-1",
+      "order": 3,
+      "parent": null,
+      "title": "Welcome to mysite Copy",
+      "description": "Welcome to your new HAX site! Click edit on the top bar to get started\nWhat can I do?\nWe've got a ton of blocks that are easy to use and get a lot done with little effort, so much in fact we made a l",
+      "metadata": {
+        "created": 1743982394,
+        "updated": 1743988412,
+        "images": {},
+        "videos": {},
+        "published": true,
+        "locked": false,
+        "status": "",
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-8b6328c1-ab3d-4266-8053-44e10181a3de",
+      "indent": 0,
+      "location": "pages/item-8b6328c1-ab3d-4266-8053-44e10181a3de/index.html",
+      "slug": "copy-of-welcome-to-mysite",
+      "order": 1,
+      "parent": null,
+      "title": "Copy of Welcome to mysite",
+      "description": "Welcome to your new HAX site! Click edit on the top bar to get started\nWhat can I do?\nWhat can I do?\nWe've got a ton of blocks that are easy to use and get a lot done with little effort,\n  so much in",
+      "metadata": {
+        "locked": false,
+        "created": 1743982431,
+        "images": {},
+        "videos": {},
+        "updated": 1744828842,
+        "published": true,
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-08313c4b-f053-450c-9e27-e9882b03635f",
+      "indent": 1,
+      "location": "pages/item-08313c4b-f053-450c-9e27-e9882b03635f/index.html",
+      "slug": "copy-of-welcome-to-mysite/copy-of-page",
+      "order": 0,
+      "parent": "item-8b6328c1-ab3d-4266-8053-44e10181a3de",
+      "title": "Copy of Page",
+      "description": "",
+      "metadata": {
+        "locked": false,
+        "created": 1743982431,
+        "images": [],
+        "videos": [],
+        "updated": 1743982431
+      }
+    },
+    {
+      "id": "item-dd0b5f94-d21b-4d7a-804f-cdd1e747c545",
+      "indent": 2,
+      "location": "pages/item-dd0b5f94-d21b-4d7a-804f-cdd1e747c545/index.html",
+      "slug": "copy-of-welcome-to-mysite/copy-of-page/copy-of-page",
+      "order": 0,
+      "parent": "item-08313c4b-f053-450c-9e27-e9882b03635f",
+      "title": "Copy of Page",
+      "description": "",
+      "metadata": {
+        "locked": false,
+        "created": 1743982431,
+        "images": [],
+        "videos": [],
+        "updated": 1743982431
+      }
+    },
+    {
+      "id": "item-8ca6ae6a-c46e-4a7b-a8bd-36c48e88de44",
+      "indent": 0,
+      "location": "pages/item-8ca6ae6a-c46e-4a7b-a8bd-36c48e88de44/index.html",
+      "slug": "copy-of-welcome-to-mysite/copy-of-page/copy-of-page-copy",
+      "order": 1,
+      "parent": "item-08313c4b-f053-450c-9e27-e9882b03635f",
+      "title": "Copy of Page Copy",
+      "description": "&#160;a\nhgfdhgfdhgfgfhdgf\n\nfdhgffdsafdsafdsafdsafsd\n",
+      "metadata": {
+        "locked": false,
+        "created": 1743982431,
+        "images": {},
+        "videos": {},
+        "updated": 1743984757,
+        "published": true,
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    },
+    {
+      "id": "item-3bcc091c-32d6-4e22-849d-99826e83ba3b",
+      "indent": 0,
+      "location": "pages/item-3bcc091c-32d6-4e22-849d-99826e83ba3b/index.html",
+      "slug": "copy-of-welcome-to-mysite/copy-of-page/copy-of-page-copy-copy",
+      "order": 2,
+      "parent": "item-08313c4b-f053-450c-9e27-e9882b03635f",
+      "title": "Copy of Page Copy Copy",
+      "description": "dsfadsafds\nfdsalfmdsa\nfsdafdlksakfj;dsa\n\nfdsakfjdsa\n\n\n",
+      "metadata": {
+        "locked": false,
+        "created": 1743982431,
+        "images": {},
+        "videos": {},
+        "updated": 1743984863,
+        "published": true,
+        "hideInMenu": false,
+        "readtime": 1
+      }
+    }
+  ]
+}

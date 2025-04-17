@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <script type="importmap">
+    {
+      "scopes": {
+        "./custom/build/": {
+          "@haxtheweb/": "./build/es6/node_modules/@haxtheweb/"
+        }
+      }
+    }
+  </script>
+  <meta charset="utf-8">
+  <link rel="preconnect" crossorigin href="https://fonts.googleapis.com">
+  <link rel="preconnect" crossorigin href="https://cdnjs.cloudflare.com">
+  <title>HAXcms</title>
+  <meta name="application-name" content="HAXcms" />
+  <meta name="apple-mobile-web-app-title" content="HAXcms" />
+  <meta name="og:sitename" property="og:sitename" content="HAXcms" />
+  <meta name="og:title" property="og:title" content="HAXcms" />
+  <meta name="twitter:title" property="twitter:title" content="HAXcms" />
+  <meta name="og:url" property="og:url" content="/" data-managed-seo />
+  <meta name="twitter:site" property="twitter:site" content="/" data-managed-seo />
+  <script>
+ // custom ganti "@haxtheweb/": "https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/"        
+    // attempt to correctly set the base without knowing where we're installed fully...
+    if (document.location.pathname.indexOf('/_sites/') != -1) {
+      document.write("<base href='" + document.location.pathname.substring(0, document.location.pathname.indexOf('/', document.location.pathname.indexOf('/_sites/') + 8)) + "/' />");
+    }
+    else if (document.location.pathname.indexOf('/sites/') != -1) {
+      document.write("<base href='" + document.location.pathname.substring(0, document.location.pathname.indexOf('/', document.location.pathname.indexOf('/sites/') + 7)) + "/' />");
+    }
+    else if (globalThis.location.host.indexOf('github.io') != -1 && globalThis.location.pathname.split('/').length > 1) {
+      document.write("<base href='/" + document.location.pathname.split('/')[1] + "/' />");
+    }
+    else {
+      document.write("<base href='/' />");
+    }
+    var mangedSEO = document.querySelectorAll('[data-managed-seo]');
+    for (var i = 0; i < mangedSEO.length; i++) {
+      var seoTag = mangedSEO[i];
+      seoTag.setAttribute('content', document.location.href);
+    }
+  </script>
+  <link rel="preload" href="./build.js" as="script" />
+  <link rel="preload" href="./build-haxcms.js" as="script" />
+  <link rel="preload" href="./wc-registry.json" as="fetch" crossorigin="anonymous" fetchpriority="high" />
+  <link rel="preload" href="./build/es6/node_modules/@haxtheweb/dynamic-import-registry/dynamic-import-registry.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="./build/es6/node_modules/@haxtheweb/dynamic-import-registry/dynamic-import-registry.js" />
+  <link rel="preload" href="./build/es6/node_modules/@haxtheweb/wc-autoload/wc-autoload.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="./build/es6/node_modules/@haxtheweb/wc-autoload/wc-autoload.js" />
+  <link rel="preload" href="./build/es6/node_modules/@haxtheweb/haxcms-elements/lib/core/themes/haxcms-basic-theme.js" as="script" crossorigin="anonymous" />
+  <link rel="modulepreload" href="./build/es6/node_modules/@haxtheweb/haxcms-elements/lib/core/themes/haxcms-basic-theme.js" />
+  <link rel="preload" href="./build/es6/node_modules/@haxtheweb/haxcms-elements/lib/base.css" as="style" />
+  <meta name="generator" content="HAXcms">
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <link rel="icon" href="assets/icon-48x48.png">
+  <meta name="theme-color" content="">
+  <meta name="robots" content="index, follow">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" sizes="48x48" href="assets/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="assets/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/icon-192x192.png">
+  <meta name="msapplication-TileImage" content="assets/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="" />
+  <meta name="og:type" property="og:type" content="article" />
+  <meta name="og:description" property="og:description" content="" />
+  <meta name="og:image" property="og:image" content="" />
+  <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" property="twitter:description" content="" />
+  <meta name="twitter:image" property="twitter:image" content="" />
+  <meta rel="cc:license" href="https://creativecommons.org/licenses/by-sa/4.0/" content="License: Creative Commons: Attribution Share a like"/>
+  
+  <!-- Service worker disabled via settings -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 98vh;
+    }
+    haxcms-site-builder:not([theme-loaded]) * {
+      margin-top: 100px;
+      display: block;
+      max-width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    haxcms-site-builder[theme-loaded] .haxcms-theme-element:not(:defined) {
+      margin-top: 100px;
+    }
+    haxcms-site-builder[theme-loaded] .haxcms-theme-element:not(:defined) * {
+      max-width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    haxcms-site-builder[theme-loaded] .haxcms-theme-element:not(:defined) *:not(:defined) {
+      display: block;
+      min-height: 50px;
+      min-width: 200px;
+    }
+
+
+
+    /* tambahan link a */
+    a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+a::before,
+a::after {
+ content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+a::before {
+  background-color: #54b3d6;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #54b3d6;
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+a {
+  text-decoration: none;
+  color: #18272F;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+
+.loading-logo {
+  width: 100px;        /* Sesuaikan ukuran logo */
+  height: auto;
+  margin: 0 auto 2rem; /* Jarak bawah agar tidak terlalu mepet ke progress bar */
+  display: block;
+  animation: logo-pulse 3s infinite ease-in-out;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+  </style>
+
+
+
+<style id="loadingstyles">
+  haxcms-site-builder {
+    display: block;
+  }
+  body {
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  #loading {
+    background-color: #ffffff;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+  #loading.loaded {
+    animation: fade-out 0.5s ease-in-out forwards;
+  }
+  #loading div.messaging {
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    animation: pulse-text 2s infinite ease-in-out;
+  }
+  /* Progress bar container */
+  .progress-line {
+    position: relative;
+    width: 50vw;
+    max-width: 400px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  }
+  /* Animated progress shimmer */
+  .progress-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40%;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #ff4d4d,
+      #ff2222,
+      #ff4d4d,
+      transparent
+    );
+    border-radius: 8px;
+    animation: shimmer 2.5s infinite;
+  }
+
+  /* Animations */
+  @keyframes shimmer {
+    0% {
+      left: -40%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+  @keyframes pulse-text {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #121212;
+      color: rgba(255, 255, 255, 0.3);
+    }
+    #loading {
+      background-color: #121212;
+    }
+    #loading div.messaging {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .progress-line {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    .progress-line::before {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #ff6b6b,
+        #ff2222,
+        #ff6b6b,
+        transparent
+      );
+    }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    .progress-line {
+      width: 80vw;
+      height: 10px;
+    }
+    #loading div.messaging {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+  <script id="loadingscript">
+    globalThis.dataLayer = globalThis.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    globalThis.addEventListener('haxcms-ready', function(e) {
+      var s = document.createElement('script');
+      s.async = true;
+      document.body.appendChild(s);
+      // give the web components a second to build
+      setTimeout(function() {
+        document.querySelector('#loading').classList.add('loaded');
+        setTimeout(function() {
+          if (globalThis.HAXCMS.requestAvailability().store.getManifest()) {
+            var gaid = globalThis.HAXCMS.requestAvailability().store.getManifest().metadata.site.settings.gaID || null;
+            if (gaid) {
+              gtag('config', gaid);
+              s.src = `https://www.googletagmanager.com/gtag/js?id=${gaid}`;
+            }
+          }
+          document.querySelector('#loading').parentNode.removeChild(document.querySelector('#loading'));
+          document.querySelector('#loadingstyles').parentNode.removeChild(document.querySelector('#loadingstyles'));
+          document.querySelector('#loadingscript').parentNode.removeChild(document.querySelector('#loadingscript'));
+        }, 1500);
+      }, 7500);
+    });
+  </script>
+</head>
+<body vocab="http://schema.org/" prefix="oer:http://oerschema.org cc:http://creativecommons.org/ns dc:http://purl.org/dc/terms/">
+
+  <!-- Elemen loading tunggal -->
+<section role="alert" id="loading" aria-busy="true">
+  <div class="messaging">
+    <div class="progress-line"></div>
+    <h1>Loading..</h1>
+  </div>
+  <div class="logo-container">
+    <img src="https://bluecrocus.ca/wp-content/uploads/2023/10/graphic-design-desktop-with-laptop-tools-1-1.png" alt="Logo" class="loading-logo" />
+  </div>
+</section>
+
+
+
+  <haxcms-site-builder id="site" file="site.json?2GQKWcJ3ni0xrL2X4_Dw_Sr9SeXqY2Sk3XblmvHVArA"></haxcms-site-builder>
+  <script>
+    globalThis.MicroFrontendRegistryConfig = globalThis.MicroFrontendRegistryConfig || {};
+    globalThis.HAXCMSContext="php";globalThis.__appCDN="./";</script>
+  <script src="./build-haxcms.js"></script>
+  <script src="./build.js"></script>
+</body>
+</html>
