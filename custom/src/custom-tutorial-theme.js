@@ -18,31 +18,7 @@ import "@haxtheweb/haxcms-elements/lib/ui-components/active-item/site-git-corner
 import "@haxtheweb/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.js";
 // import "@haxtheweb/haxcms-elements/lib/ui-components/blocks/site-recent-content-block.js";
 import "@haxtheweb/haxcms-elements/lib/ui-components/blocks/site-children-block.js";
-import "@haxtheweb/haxcms-elements/lib/ui-components/magic/site-ai-chat.js";
-
-// Function to load AOS resources
-const loadAOS = () => {
-  return new Promise((resolve, reject) => {
-    // Load CSS
-    const aosStyles = document.createElement('link');
-    aosStyles.rel = 'stylesheet';
-    aosStyles.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
-    document.head.appendChild(aosStyles);
-
-    // Load JS
-    const aosScript = document.createElement('script');
-    aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
-    aosScript.onload = () => {
-      if (window.AOS) {
-        resolve();
-      } else {
-        reject(new Error('AOS failed to load'));
-      }
-    };
-    aosScript.onerror = () => reject(new Error('Failed to load AOS script'));
-    document.head.appendChild(aosScript);
-  });
-};
+// import "@haxtheweb/haxcms-elements/lib/ui-components/magic/site-ai-chat.js";
 
 /**
  * `CustomTutorialTheme`
@@ -78,32 +54,6 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
       this.activeId = toJS(store.activeId);
       this._items = toJS(store.manifest.items);
     });
-
-    // Initialize AOS after script loads
-    loadAOS()
-      .then(() => {
-        window.AOS.init({
-          easing: 'ease-in-out-sine',
-          duration: 2000,
-          once: false,
-          mirror: true,
-          offset: 150,
-          delay: 200,
-          anchorPlacement: 'top-bottom',
-        });
-
-        // Add image-specific animations only to images without AOS attributes
-        document.querySelectorAll('img:not([data-aos])').forEach(img => {
-          img.setAttribute('data-aos', 'zoom-in');
-          img.setAttribute('data-aos-duration', '2000');
-          img.setAttribute('data-aos-delay', '200');
-          img.setAttribute('data-aos-easing', 'ease-in-out-sine');
-          img.setAttribute('data-aos-once', 'false');
-        });
-      })
-      .catch(error => {
-        console.error('Error loading AOS:', error);
-      });
   }
 
   // properties to respond to the activeID and list of items
@@ -136,6 +86,22 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
           background-color: var(--my-theme-high-tone);
         }
 
+        /* Scroll Trigger Animation */
+        @keyframes slide-fade-in { 
+          from { 
+            opacity: 0; 
+            transform: translateY(5vh); 
+          } 
+        } 
+        
+        @media (prefers-reduced-motion: no-preference) {
+          media-image.card {
+            view-timeline-name: item-timeline;
+            animation: slide-fade-in both;
+            animation-timeline: item-timeline;
+            animation-range: contain 0% contain 50%;
+          }
+        }
 
         /* tidak jalan */
         /* .element {
@@ -232,21 +198,13 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
             var(--my-theme-high-tone)
           );
           border-color: var(--hax-ui-color-accent);
+          /* tidak bisa bawah */
+          /* color: light-dark(var(--my-theme-high-tone), var(--my-theme-low-tone)); */
+          /* --site-children-block-link-color: green; */
+          /* -site-children-block-link-hover-color: lightred; */
+          /* --site-children-block-link-active-color: blue; */
+          /* --site-children-block-link-active-bg: rgba(230, 115, 115, 0.1); */
         }
-
-        /* Add styles for images */
-        img {
-          transition: transform 0.5s ease-in-out;
-          max-width: 100%;
-          height: auto;
-          opacity: 0.8;
-        }
-
-        img:hover {
-          transform: scale(1.05);
-          opacity: 1;
-        }
-
         .wrapper {
           border-radius: var(--ddd-radius-lg);
         }
@@ -265,8 +223,14 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
         }    */
 
         }
-
         
+        /* Additional scroll animation for cards inside the theme */
+        :host media-image.card {
+          view-timeline-name: item-timeline;
+          animation: slide-fade-in both;
+          animation-timeline: item-timeline;
+          animation-range: contain 0% contain 50%;
+        }
         
         /* tambahan siet-children tidak bisa */
 
@@ -390,18 +354,18 @@ background-color: lightpink;
 
   render() {
     return html`
-      <site-ai-chat data-aos="fade-down"></site-ai-chat>
-      <site-title data-aos="fade-right"></site-title><br />
-      <site-git-corner data-aos="fade-left"></site-git-corner>
+      <site-ai-chat></site-ai-chat>
+      <site-title></site-title><br />
+      <site-git-corner></site-git-corner>
       <div class="wrapper">
-        <header data-aos="fade-down">
+        <header>
           <ul>
             <li>
               <site-menu-button type="prev" position="top"></site-menu-button>
             </li>
             ${this._items.map((item, index) => {
               return html`
-                <li class="${item.id === this.activeId ? "active" : ""}" data-aos="zoom-in" data-aos-delay="${index * 100}">
+                <li class="${item.id === this.activeId ? "active" : ""}">
                   <a href="${item.slug}"
                     ><button title="${item.title}">${index + 1}</button></a
                   >
@@ -415,16 +379,18 @@ background-color: lightpink;
         </header>
         <main>
           <article>
-            <site-active-title data-aos="fade-up"></site-active-title>
-            <site-children-block data-aos="fade-up" data-aos-delay="200"></site-children-block>
-            <site-breadcrumb data-aos="fade-up" data-aos-delay="300"></site-breadcrumb>
+            <site-active-title></site-active-title>
+            <!-- <site-recent-content-block></site-recent-content-block> -->
+            <site-children-block></site-children-block>
+            <site-breadcrumb></site-breadcrumb>
 
-            <div id="contentcontainer" data-aos="fade-up" data-aos-delay="400">
+            <!-- this block and names are required for HAX to edit the content of the page. contentcontainer, slot, and wrapping the slot. -->
+            <div id="contentcontainer">
               <div id="slot"><slot></slot></div>
             </div>
           </article>
         </main>
-        <footer data-aos="fade-up" data-aos-delay="500">
+        <footer>
           <slot name="footer"></slot>
         </footer>
       </div>
