@@ -20,16 +20,29 @@ import "@haxtheweb/haxcms-elements/lib/ui-components/navigation/site-breadcrumb.
 import "@haxtheweb/haxcms-elements/lib/ui-components/blocks/site-children-block.js";
 import "@haxtheweb/haxcms-elements/lib/ui-components/magic/site-ai-chat.js";
 
-// Add AOS CSS
-const aosStyles = document.createElement('link');
-aosStyles.rel = 'stylesheet';
-aosStyles.href = 'https://themewagon.github.io/AgriCulture/assets/vendor/aos/aos.css';
-document.head.appendChild(aosStyles);
+// Function to load AOS resources
+const loadAOS = () => {
+  return new Promise((resolve, reject) => {
+    // Load CSS
+    const aosStyles = document.createElement('link');
+    aosStyles.rel = 'stylesheet';
+    aosStyles.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
+    document.head.appendChild(aosStyles);
 
-// Add AOS JS
-const aosScript = document.createElement('script');
-aosScript.src = 'https://themewagon.github.io/AgriCulture/assets/vendor/aos/aos.js';
-document.head.appendChild(aosScript);
+    // Load JS
+    const aosScript = document.createElement('script');
+    aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+    aosScript.onload = () => {
+      if (window.AOS) {
+        resolve();
+      } else {
+        reject(new Error('AOS failed to load'));
+      }
+    };
+    aosScript.onerror = () => reject(new Error('Failed to load AOS script'));
+    document.head.appendChild(aosScript);
+  });
+};
 
 /**
  * `CustomTutorialTheme`
@@ -67,24 +80,30 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
     });
 
     // Initialize AOS after script loads
-    aosScript.onload = () => {
-      window.AOS.init({
-        easing: 'ease-in-out-sine',
-        duration: 1000,
-        once: false,
-        mirror: true,
-        offset: 100,
-        delay: 0,
-        anchorPlacement: 'top-bottom',
-      });
+    loadAOS()
+      .then(() => {
+        window.AOS.init({
+          easing: 'ease-in-out-sine',
+          duration: 2000,
+          once: false,
+          mirror: true,
+          offset: 150,
+          delay: 200,
+          anchorPlacement: 'top-bottom',
+        });
 
-      // Add image-specific animations
-      document.querySelectorAll('img').forEach(img => {
-        img.setAttribute('data-aos', 'zoom-in');
-        img.setAttribute('data-aos-duration', '1000');
-        img.setAttribute('data-aos-once', 'false');
+        // Add image-specific animations only to images without AOS attributes
+        document.querySelectorAll('img:not([data-aos])').forEach(img => {
+          img.setAttribute('data-aos', 'zoom-in');
+          img.setAttribute('data-aos-duration', '2000');
+          img.setAttribute('data-aos-delay', '200');
+          img.setAttribute('data-aos-easing', 'ease-in-out-sine');
+          img.setAttribute('data-aos-once', 'false');
+        });
+      })
+      .catch(error => {
+        console.error('Error loading AOS:', error);
       });
-    };
   }
 
   // properties to respond to the activeID and list of items
@@ -217,13 +236,15 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
 
         /* Add styles for images */
         img {
-          transition: transform 0.3s ease-in-out;
+          transition: transform 0.5s ease-in-out;
           max-width: 100%;
           height: auto;
+          opacity: 0.8;
         }
 
         img:hover {
           transform: scale(1.05);
+          opacity: 1;
         }
 
         .wrapper {
