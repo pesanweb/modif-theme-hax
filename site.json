@@ -176,6 +176,22 @@
       }
     },
     {
+      "id": "item-ea08cc28-6484-45e4-92d7-9f96cab16456",
+      "indent": 0,
+      "location": "pages/item-ea08cc28-6484-45e4-92d7-9f96cab16456/index.html",
+      "slug": "welcome/page/page-copy-1",
+      "order": 1,
+      "parent": "item-eb6e4126-9f1e-4735-a5f5-638d5288c0c7",
+      "title": "Page Copy",
+      "description": "",
+      "metadata": {
+        "created": 1746519895,
+        "updated": 1746519895,
+        "images": [],
+        "videos": []
+      }
+    },
+    {
       "id": "item-d89e882c-5f03-4245-9135-c75c8bee9de6",
       "indent": 0,
       "location": "pages/item-d89e882c-5f03-4245-9135-c75c8bee9de6/index.html",
