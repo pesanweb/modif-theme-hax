@@ -95,13 +95,22 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
         } 
         
         @media (prefers-reduced-motion: no-preference) {
-          media-image.card {
-            view-timeline-name: item-timeline;
+          media-image.imgfade {
+            view-timeline-name: --item-timeline;
             animation: slide-fade-in both;
-            animation-timeline: item-timeline;
+            animation-timeline: --item-timeline;
             animation-range: contain 0% contain 50%;
           }
         }
+
+        /* Additional scroll animation for cards inside the theme */
+        media-image.imgfade {
+          view-timeline-name: item-timeline;
+          animation: slide-fade-in both;
+          animation-timeline: item-timeline;
+          animation-range: contain 0% contain 50%;
+        }
+        
 
         /* tidak jalan */
         /* .element {
@@ -224,14 +233,7 @@ class CustomTutorialTheme extends HAXCMSLitElementTheme {
 
         }
         
-        /* Additional scroll animation for cards inside the theme */
-        :host media-image.card {
-          view-timeline-name: item-timeline;
-          animation: slide-fade-in both;
-          animation-timeline: item-timeline;
-          animation-range: contain 0% contain 50%;
-        }
-        
+
         /* tambahan siet-children tidak bisa */
 
         /* site-children-block .link {
